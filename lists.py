@@ -9,7 +9,7 @@
 # Licence:     <GPL>
 # -------------------------------------------------------------------------------
 
-import re, csv
+import os, re, csv
 
 ro = 7.850 / 1000000
 
@@ -91,7 +91,7 @@ class ListSortament:
 
     def findbyname(self, _name):
         hasfind = False
-        file = open(self.fname)
+        file = open(os.path.join(os.path.dirname(__file__), self.fname))
         csvr = csv.DictReader(file, delimiter=";")
 
         for row in csvr:
